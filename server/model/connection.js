@@ -5,7 +5,7 @@ dotenv.config()
 
 // const url = 'mongodb://localhost:27017/cruddb'
 const MONGODB_URI = process.env.MONGODB_URI;
-console.log(MONGODB_URI);
+// console.log(MONGODB_URI);
 
 // const MONGODB_URI =  "mongodb+srv://bunty:bunty123@cluster0.e0ugo.mongodb.net/crud?retryWrites=true&w=majority&appName=Cluster0"
 // console.log("connecting to");
