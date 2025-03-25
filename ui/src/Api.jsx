@@ -18,20 +18,21 @@ export default function Api() {
     const [switchbtn, setSwitchbtn] = useState(true)
     const [errors, setErrors] = useState({});
 
+    // const url = "http://localhost:5000"
 
     const validate = () => {
         let newErrors = {};
-        
+
         if (!fName.trim()) {
             newErrors.fName = "Name is required";
         } else if (fName.length < 3) {
             newErrors.fName = "Name must be at least 3 characters long";
         }
-        
+
         if (!age) {
             newErrors.age = "Age is required";
         }
-        
+
         if (!mobile) {
             newErrors.mobile = "Mobile number is required";
         } else if (!/^\d{10}$/.test(mobile)) {
@@ -55,7 +56,6 @@ export default function Api() {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-
 
     const handleEdit = async (itm) => {
 

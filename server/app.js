@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from 'dotenv';
 
-// import crudModel from "./model/connection.js";
 import crudController from "./controllers/crud.controller.js";
 
 const app = express();
@@ -17,7 +16,6 @@ app.use("/", crudController);
 
 // if not getting use another port 
 const PORT = process.env.PORT || 3000;
-
 
 // const port = 5000;
 app.listen(PORT, (err) => {
