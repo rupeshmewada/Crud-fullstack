@@ -82,12 +82,12 @@ export default function Api() {
                 city: city
             }
 
-            await axios.patch(`http://localhost:5000/updateuser/${id}`, updatedata).then((items) => {
+            await axios.patch(`https://crud-fullstack-backend-89kr.onrender.com/${id}`, updatedata).then((items) => {
                 toast.success("update user successfully ");
                 return items.data
             })
 
-            await axios.get("http://localhost:5000/").then((items) => {
+            await axios.get("https://crud-fullstack-backend-89kr.onrender.com").then((items) => {
                 return setUser(items.data)
             })
 
@@ -115,7 +115,7 @@ export default function Api() {
                 l = user[(user.length - 1)].id
             }
 
-            await axios.post("http://localhost:5000/", {
+            await axios.post("https://crud-fullstack-backend-89kr.onrender.com", {
                 id: l + 1,
                 name: fName,
                 age: age,
@@ -129,7 +129,7 @@ export default function Api() {
                 return "updated"
             })
 
-            await axios.get("http://localhost:5000/").then((items) => {
+            await axios.get("https://crud-fullstack-backend-89kr.onrender.com").then((items) => {
                 return setUser(items.data)
             })
 
@@ -161,20 +161,20 @@ export default function Api() {
         const confirmDelete = window.confirm("Are you sure you want delete  data?");
         if (confirmDelete) {
 
-            await axios.delete(`http://localhost:5000/${id}`).then((items) => {
+            await axios.delete(`https://crud-fullstack-backend-89kr.onrender.com/${id}`).then((items) => {
                 // console.log('delete');
                 return items.data
             })
             toast.success("Successfully Deleted");
 
-            await axios.get("http://localhost:5000/").then((item) => {
+            await axios.get("https://crud-fullstack-backend-89kr.onrender.com").then((item) => {
                 setUser(item.data)
             })
         }
     }
 
     useEffect(() => {
-        axios.get("http://localhost:5000/").then((items) => {
+        axios.get("https://crud-fullstack-backend-89kr.onrender.com").then((items) => {
             setUser(items.data)
         })
 
