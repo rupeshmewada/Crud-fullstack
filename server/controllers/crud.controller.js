@@ -24,15 +24,16 @@ router.post("/", async (req, res) => {
   try {
     let user = req.body;
     const allUsers = await crudModel.find({});
+console.log(user);
 
     if (user != 0) {
       if (allUsers != 0) {
         let last = allUsers[allUsers.length - 1].id;
         const data = await crudModel.create({ ...user, id: last + 1 });
-        // console.log(data);
+        console.log(data);
       } else {
         const data = await crudModel.create({ ...user, id: 1 });
-        // console.log(data);
+        console.log(data);
       }
       return res.status(201).json({ message: "data created successfully" });
     } else {
