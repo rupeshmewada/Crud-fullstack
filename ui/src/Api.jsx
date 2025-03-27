@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import EmployeeData from './EmployeeData'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -35,8 +34,8 @@ export default function Api() {
 
         if (!mobile) {
             newErrors.mobile = "Mobile number is required";
-        } else if (!/^\d{10}$/.test(mobile)) {
-            newErrors.mobile = "Mobile number must be 10 digits";
+        } else if (!/^[6789]\d{9}$/.test(mobile)) {
+            newErrors.mobile = ` Number start with 6,7,8 or 9 and 10 digits required`;
         }
 
         if (!email) {
@@ -82,7 +81,7 @@ export default function Api() {
                 city: city
             }
 
-            await axios.patch(`https://crud-fullstack-backend-89kr.onrender.com/${id}`, updatedata).then((items) => {
+            await axios.patch(`https://crud-fullstack-backend-89kr.onrender.com/updateuser/${id}`, updatedata).then((items) => {
                 toast.success("update user successfully ");
                 return items.data
             })
